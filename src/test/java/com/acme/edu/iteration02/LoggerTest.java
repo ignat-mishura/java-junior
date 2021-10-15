@@ -136,13 +136,13 @@ public class LoggerTest implements SysoutCaptureAndAssertionAbility {
         //endregion
 
         //region then
-//        assertSysoutEquals(
-//            "str 1" + sep +
-//            "str 2 (x2)" + sep +
-//            "0" + sep +
-//            "str 2" + sep +
-//            "str 3 (x3)" + sep
-//        );
+       assertSysoutEquals(
+            "str 1" + sep +
+            "str 2 (x2)" + sep +
+            "0" + sep +
+            "str 2" + sep +
+            "str 3 (x3)" + sep
+        );
         //endregion
     }
 }

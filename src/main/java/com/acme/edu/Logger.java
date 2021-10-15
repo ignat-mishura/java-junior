@@ -11,7 +11,7 @@ public class Logger {
     public static boolean byteAccIsNotEmpty = false;
     private static int byteAccumulator = 0;
     private static String savedString;
-    private static int strRepeatitionCounter = 0;
+    private static int strRepeatCounter = 0;
 
 
     public static void log(int message) { output(OUTPUT_METHOD,PRIMITIVE_PREFIX, message); }
@@ -27,6 +27,7 @@ public class Logger {
     public static void log(Object message) { output(OUTPUT_METHOD,OBJECT_PREFIX, message); }
 
     private static void output(OutputMethod outputMethod, String prefix, Object message) {
+        System.out.println(message.getClass().getName());
         if (outputMethod == OutputMethod.TERMINAL) {
             switch (message.getClass().getSimpleName()) {
                 case ("Integer"):
@@ -35,9 +36,9 @@ public class Logger {
                 case ("Byte"):
                     accumulator((byte) message);
                     break;
-//                case ("String"):
-//
-//                    break;
+                case ("String"):
+                    accumulator((String) message);
+                    break;
                 default:
                     System.out.println(prefix + message);
                     break;
@@ -55,6 +56,11 @@ public class Logger {
 
     private static void accumulator(byte b) {
         byteAccumulator += b;
+        byteAccIsNotEmpty = true;
+    }
+
+    private static void accumulator(String s) {
+        strRepeatCounter += 1;
         byteAccIsNotEmpty = true;
     }
 
