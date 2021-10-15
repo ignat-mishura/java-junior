@@ -61,6 +61,7 @@ public class Logger {
 
     private static void accumulator(String s) {
         strRepeatCounter += 1;
+
         byteAccIsNotEmpty = true;
     }
 
